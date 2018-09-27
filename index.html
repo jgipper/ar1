@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Berlin</title>
     <meta name="description" content="Berlin">
@@ -11,53 +12,54 @@
     <script>
         // Component to change to a sequential color on click.
         AFRAME.registerComponent('cursor-listener', {
-          init: function () {
-            this.el.addEventListener('click', function (evt) {
-              console.log('I was clicked at: ', evt.detail);
-            });
-          }
+            init: function () {
+                this.el.addEventListener('click', function (evt) {
+                    console.log('I was clicked at: ', evt.detail);
+                });
+            }
         });
     </script>
     <style>
-      body {
+        body {
         margin: 0;
         overflow: hidden;
       }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <a-scene
-      embedded
-      arjs
-      cursor-listener>
+        embedded
+        arjs
+        cursor-listener>
         <a-text
-          id="myText"
-          value="A box"
-          position="0 2.5 -4"
-          align="center"
-          color="#FFF"
-          visible="false"
-          geometry="primitive: plane; width: 1.75"
-          material="color: #333">
+            id="myText"
+            value="A box"
+            position="0 2.5 -4"
+            align="center"
+            color="#FFF"
+            visible="false"
+            geometry="primitive: plane; width: 1.75"
+            material="color: #333">
         </a-text>
         <a-entity
-          light="type: directional; color: #FFF; intensity: 1"
-          position="900 1500 450">
-        </a-entity>
-        <a-entity
-          gltf-model="url(./models/low_poly_apartment_building/scene.gltf)"
-          position="0 0 0"
-          rotation="0 225 0"
-          scale=".125 .125 .125"
-          event-set__enter="_event: mouseenter; _target: #myText; visible: true"
-          event-set__leave="_event: mouseleave; _target: #myText; visible: false">
+            light="type: directional; color: #FFF; intensity: 1"
+            position="900 1500 450">
         </a-entity>
         <a-marker-camera
-          type="pattern"
-          url="./patt/GODENVER-marker.patt"
-          look-controls>
-          <a-cursor></a-cursor>
+            type="pattern"
+            url="./patt/pattern-marker.patt"
+            look-controls>
+            <a-entity
+                gltf-model="url(./models/low_poly_apartment_building/scene.gltf)"
+                position="0 0 0"
+                rotation="0 225 0"
+                scale=".125 .125 .125"
+                event-set__enter="_event: mouseenter; _target: #myText; visible: true"
+                event-set__leave="_event: mouseleave; _target: #myText; visible: false">
+            </a-entity>
         </a-marker-camera>
     </a-scene>
-  </body>
+</body>
+
 </html>
