@@ -17,19 +17,19 @@
             });
           }
         });
-        </script>
-      </head>
+    </script>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
   <body>
     <a-scene
       embedded
       arjs
       cursor-listener>
-        <a-box
-          color="#EF2D5E"
-          position="0 1 -4"
-          event-set__enter="_event: mouseenter; _target: #myText; visible: true"
-          event-set__leave="_event: mouseleave; _target: #myText; visible: false">
-        </a-box>
         <a-text
           id="myText"
           value="A box"
@@ -41,20 +41,22 @@
           material="color: #333">
         </a-text>
         <a-entity
-          light="type: directional; color: #FFF; intensity: 15"
+          light="type: directional; color: #FFF; intensity: 1"
           position="900 1500 450">
         </a-entity>
-<!--         <a-entity
-          gltf-model="url(/models/scene.gltf)"
-          position="0 0 0">
+        <a-entity
+          gltf-model="url(/models/low_poly_apartment_building/scene.gltf)"
+          position="0 0 0"
+          rotation="0 225 0"
+          scale=".125 .125 .125"
+          event-set__enter="_event: mouseenter; _target: #myText; visible: true"
+          event-set__leave="_event: mouseleave; _target: #myText; visible: false">
         </a-entity>
- -->        <!-- <a-entity camera="active: true"
-          look-controls
-          wasd-controls="acceleration: 300"
-          position="0 3 0">
+        <a-marker-camera
+          preset='hiro'
+          look-controls>
           <a-cursor></a-cursor>
-        </a-entity> -->
-        <a-marker-camera preset='hiro'></a-marker-camera>
+        </a-marker-camera>
     </a-scene>
   </body>
 </html>
