@@ -3,12 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Berlin</title>
-    <meta name="description" content="Berlin">
+    <title>Demo</title>
+    <meta name="description" content="Demo">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <!-- <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script> -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
     <script>
         // Component to change to a sequential color on click.
         AFRAME.registerComponent('cursor-listener', {
@@ -30,34 +28,43 @@
 <body>
     <a-scene
         embedded
-        arjs
-        cursor-listener>
-        <a-text
-            id="myText"
-            value="A box"
-            position="0 2.5 -4"
-            align="center"
-            color="#FFF"
-            visible="false"
-            geometry="primitive: plane; width: 1.75"
-            material="color: #333">
-        </a-text>
-        <a-entity
-            light="type: directional; color: #FFF; intensity: 1"
-            position="900 1500 450">
-        </a-entity>
+        arjs='sourceType: webcam;'>
+        <!-- <a-entity
+            gltf-model="url(./models/low_poly_apartment_building/scene.gltf)"
+            position="0 0 0"
+            rotation="0 225 0"
+            scale=".125 .125 .125"
+            cursor-listener
+            event-set__enter="_event: mouseenter; _target: #myText; visible: true"
+            event-set__leave="_event: mouseleave; _target: #myText; visible: false">
+        </a-entity> -->
+        <!-- <a-marker-camera
+            type="pattern"
+            url="./patt/WSP1.patt">
+            <a-text
+                id="myText"
+                value="Box 1"
+                position="0 0 0"
+                align="center"
+                color="#f00"
+                cursor-listener
+                geometry="primitive: plane; width: 1.75"
+                material="color: #fff">
+            </a-text>
+        </a-marker-camera> -->
         <a-marker-camera
             type="pattern"
-            url="./patt/pattern-marker.patt"
-            look-controls>
-            <a-entity
-                gltf-model="url(./models/low_poly_apartment_building/scene.gltf)"
+            url="./patt/WSP2.patt">
+            <a-text
+                id="myText"
+                value="Box 2"
+                align="center"
                 position="0 0 0"
-                rotation="0 225 0"
-                scale=".125 .125 .125"
-                event-set__enter="_event: mouseenter; _target: #myText; visible: true"
-                event-set__leave="_event: mouseleave; _target: #myText; visible: false">
-            </a-entity>
+                cursor-listener
+                color="#f00"
+                geometry="primitive: plane; width: 1.75"
+                material="color: #fff">
+            </a-text>
         </a-marker-camera>
     </a-scene>
 </body>
